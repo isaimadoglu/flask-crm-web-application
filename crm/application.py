@@ -37,6 +37,7 @@ def touch_data():
 @app.route("/touch-add")
 def touch_add_page():
     touches = Touch.query.all()
+    leads = Lead.query.all()
     return render_template("touch-add.html")
 @app.route("/touch-add-function", methods = ["POST"])
 def touch_add():
