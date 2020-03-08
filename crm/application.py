@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 import os # to give path of sqlite3 database
 
@@ -32,13 +33,15 @@ def lead_add():
 
 @app.route("/touch-data")
 def touch_data():
+  touches = Touch.query.all()
   return render_template("touch-data.html")
 
 @app.route("/touch-add")
 def touch_add_page():
     touches = Touch.query.all()
     leads = Lead.query.all()
-    return render_template("touch-add.html")
+
+    return render_template("touch-add.html", leads = leads, touches = touches)
 @app.route("/touch-add-function", methods = ["POST"])
 def touch_add():
     lead_id = request.form.get("lead_id")
@@ -67,7 +70,7 @@ class Lead(db.Model):
       self.phone = phone
       self.email = email
 
-  def __repr(self):
+  def __repr__(self):
       return '<Lead %r>' % self.name
 
 class Touch(db.Model):
@@ -84,7 +87,7 @@ class Touch(db.Model):
       self.date = date
       self.description = description
 
-  def __repr(self):
+  def __repr__(self):
       return '<Touch %r>' % self.description
 
 if __name__ == "__main__":
