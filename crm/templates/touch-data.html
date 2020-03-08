@@ -18,31 +18,19 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Company</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Email</th>
+            <th scope="col">Lead</th>
+            <th scope="col">Date</th>
+            <th scope="col">Description</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          {% for touch in touches %}
+            <tr>
+              <td>{{touch.lead_id}}</td>
+              <td>{{touch.date}}</td>
+              <td>{{touch.description}}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
 
