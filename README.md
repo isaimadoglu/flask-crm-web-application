@@ -10,6 +10,25 @@ Software Requirements:
 
 * Required Python modules are listed in "requirements.txt".
 
+# How to Run the application
+
+- First of all the project should be downloaded.
+- venv37 can be deleted, because different computers may not run the same virtual environments.
+- A new Python 3.7 version virtual environment can be created and required modules can be installed using the commend below:
+$ pip install -r requirements.text
+- Python virtual environment should be sourced using the command below:
+$ source venv/bin/activate  # supposed that name of the virtualenv is "venv"
+- Now "crm" directory is used anymore.
+$ cd crm
+- A new sqlite3 database must be created with the commands below:
+$ sqlite3 crm_database
+sqlite> .tables
+sqlite> .exit
+- It is ready to run.
+$ python application.py
+- The application can be used over a web browser.
+Url-> localhost:5000
+
 # Development Process
 
 For Ubuntu 18.04:
